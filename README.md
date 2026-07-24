@@ -37,20 +37,52 @@ The APK is written to `app/build/outputs/apk/debug/app-debug.apk`.
 
 GGUF model files are intentionally not included in this repository. Import them in the app through the model manager. The expected files are:
 
-- `MiniCPM-V-4_6-Q4_K_M.gguf`
-- `mmproj-model-f16.gguf`
+- Language model: [MiniCPM-V-4_6-Q5_K_M.gguf](https://huggingface.co/openbmb/MiniCPM-V-4.6-gguf/blob/main/MiniCPM-V-4_6-Q5_K_M.gguf)
+- Vision projector: [mmproj-model-f16.gguf](https://huggingface.co/openbmb/MiniCPM-V-4.6-gguf/blob/main/mmproj-model-f16.gguf)
+
+Download both files from the official OpenBMB Hugging Face repository, then import them from the in-app model manager. Q5 generally needs more memory than Q4. If the installed app validates an exact filename, size, or SHA-256, update that allowlist together with the selected quantization before importing.
 
 Do not commit model files, private photos, feedback exports, signing keys, or `local.properties`.
 
 ## Project layout
 
 ```text
-app/src/main/java/com/example/pokedex/   Kotlin UI and application logic
-app/src/main/cpp/                         JNI bridge and llama.cpp runtime
-app/src/main/assets/pokemon/              Generated compact catalog and images
-app/src/main/res/raw/                     Default sound effects
-tools/                                    Catalog, sound, and feedback tools
-docs/                                     Development and architecture documents
+pokedex/
+├── app/
+│   ├── build.gradle.kts                  Android dependencies and build options
+│   ├── src/main/AndroidManifest.xml      App, camera, and file-picker metadata
+│   ├── src/main/assets/pokemon/          Generated catalog.json and Pokémon images
+│   ├── src/main/cpp/                     JNI bridge and native inference
+│   │   └── third_party/llama.cpp/        Vendored llama.cpp/libmtmd and notices
+│   ├── src/main/java/com/example/pokedex/
+│   │   ├── MainActivity.kt               Compose entry point
+│   │   └── ui/
+│   │       ├── scanner/                   Scanner, catalog, detail, and AI logic
+│   │       │   ├── ScannerScreen.kt       Main Compose screens
+│   │       │   ├── ScannerShell.kt        Mechanical shell and controls
+│   │       │   ├── ScannerViewModel.kt    StateFlow orchestration
+│   │       │   ├── ScannerState.kt        UI state and actions
+│   │       │   ├── CameraSession.kt       CameraX lifecycle and capture
+│   │       │   ├── RecognitionRuntime.kt JSON protocol/runtime adapter
+│   │       │   ├── ModelStore.kt          GGUF import and validation
+│   │       │   ├── PokemonCatalog.kt      Catalog entities and lookup
+│   │       │   ├── PokemonNarrator.kt     Chinese TTS narration
+│   │       │   ├── SoundEffects.kt        Replaceable sound effects
+│   │       │   ├── ScannerSettings.kt    Persistent recognition console
+│   │       │   └── FeedbackStore.kt       Correction and export data
+│   │       └── theme/                     Compose theme and color tokens
+│   ├── src/main/res/                      Icons, sounds, values, and XML rules
+│   ├── src/test/                          JVM unit tests
+│   └── src/androidTest/                   Compose/device tests
+├── docs/                                  Development and architecture docs
+├── tools/                                 Catalog, sound, and feedback scripts
+├── gradle/                                Version catalog and Gradle wrapper
+├── build.gradle.kts                       Root Gradle configuration
+├── settings.gradle.kts                    Module/repository configuration
+├── gradlew / gradlew.bat                  Reproducible build entry points
+├── .gitignore                             Models, local config, builds, private data
+├── LICENSE                                Apache License 2.0 for project code
+└── README.md                              Project documentation
 ```
 
 ## License and third-party notices
