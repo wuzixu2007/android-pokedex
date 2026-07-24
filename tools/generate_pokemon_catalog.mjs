@@ -2,8 +2,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const defaultDatasetRoot =
-  "C:/Users/jy420/Downloads/pokemon-dataset-zh-main/pokemon-dataset-zh-main";
+// Keep the generator portable; pass a dataset path as the first CLI argument when needed.
+const defaultDatasetRoot = path.resolve("data/pokemon-dataset-zh-main");
 const defaultOutputRoot = path.resolve("app/src/main/assets/pokemon");
 
 const datasetRoot = path.resolve(process.argv[2] ?? defaultDatasetRoot);

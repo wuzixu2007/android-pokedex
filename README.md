@@ -35,7 +35,7 @@ The APK is written to `app/build/outputs/apk/debug/app-debug.apk`.
 
 ## Download and install the APK
 
-打开 GitHub 仓库的 [Releases](https://github.com/jy420344576-jpg/android-pokedex/releases) 页面下载最新 APK。源码仓库不直接提交 APK；如暂时没有 Release，可在本地构建 Debug APK：
+打开 GitHub 仓库的 [Releases](https://github.com/wuzixu2007/android-pokedex/releases) 页面下载最新 APK。源码仓库不直接提交 APK；如暂时没有 Release，可在本地构建 Debug APK：
 
 ```powershell
 .\gradlew.bat :app:assembleDebug
