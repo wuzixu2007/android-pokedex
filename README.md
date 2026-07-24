@@ -33,6 +33,28 @@ node tools/generate_default_sfx.mjs
 
 The APK is written to `app/build/outputs/apk/debug/app-debug.apk`.
 
+## Download and install the APK
+
+打开 GitHub 仓库的 [Releases](https://github.com/jy420344576-jpg/android-pokedex/releases) 页面下载最新 APK。源码仓库不直接提交 APK；如暂时没有 Release，可在本地构建 Debug APK：
+
+```powershell
+.\gradlew.bat :app:assembleDebug
+```
+
+生成文件：
+
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
+
+通过 ADB 安装到已连接的 Android 设备：
+
+```powershell
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+```
+
+`-r` 会覆盖安装并保留应用数据、模型和标注记录。首次使用仍需在应用内导入 GGUF 模型。
+
 ## Models
 
 GGUF model files are intentionally not included in this repository. Import them in the app through the model manager. The expected files are:
