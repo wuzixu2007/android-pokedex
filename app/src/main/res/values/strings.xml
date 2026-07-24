@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">宝可梦图鉴扫描器</string>
+    <string name="camera_permission_title">需要相机权限</string>
+    <string name="camera_permission_body">开启相机后才能拍摄并识别宝可梦。</string>
+    <string name="camera_permission_action">开启相机</string>
+    <string name="camera_unavailable">无法使用相机</string>
+    <string name="recognition_unavailable">本地 AI 无法完成识别</string>
+    <string name="camera_retry">重试</string>
+    <string name="capture_pokemon">识别宝可梦</string>
+    <string name="reset_scanner">返回相机</string>
+    <string name="previous_pokemon">上一只宝可梦</string>
+    <string name="next_pokemon">下一只宝可梦</string>
+    <string name="scanner_ready">READY</string>
+    <string name="scanner_analyzing">ANALYZING</string>
+    <string name="scanner_result">MATCH FOUND</string>
+    <string name="model_setup_title">导入本地 AI 模型</string>
+    <string name="model_setup_body">需要语言模型和视觉投影模型后才能识别。</string>
+    <string name="import_language_model">导入 MiniCPM-V 模型</string>
+    <string name="import_vision_model">导入 mmproj 模型</string>
+    <string name="model_ready">已验证</string>
+    <string name="model_missing">未导入</string>
+    <string name="model_loading">正在加载本地模型</string>
+    <string name="model_importing">正在验证并导入模型</string>
+    <string name="choose_photo">选择图片</string>
+    <string name="manage_models">管理模型</string>
+    <string name="ditto_notice">这是百变怪变的</string>
+</resources>
