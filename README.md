@@ -36,12 +36,12 @@
 
 ## 本地模型下载
 
-模型不打包进 Git 仓库，也不会随 APK 自动下载。请从 OpenBMB 官方 Hugging Face 页面下载：
+模型不打包进 Git 仓库，也不会随 APK 自动下载。当前应用内置校验规则只接受 Q4 语言模型，请下载以下版本：
 
-- [MiniCPM-V-4_6-Q5_K_M.gguf](https://huggingface.co/openbmb/MiniCPM-V-4.6-gguf/blob/main/MiniCPM-V-4_6-Q5_K_M.gguf)
+- [MiniCPM-V-4_6-Q4_K_M.gguf](https://huggingface.co/openbmb/MiniCPM-V-4.6-gguf/blob/main/MiniCPM-V-4_6-Q4_K_M.gguf)
 - [mmproj-model-f16.gguf](https://huggingface.co/openbmb/MiniCPM-V-4.6-gguf/blob/main/mmproj-model-f16.gguf)
 
-下载后在应用的模型管理页面分别导入两个文件。Q5 量化版本比 Q4 占用更多内存；如果应用版本启用了严格的文件名、大小或 SHA-256 白名单，需要同步调整验证配置。
+下载后在应用的模型管理页面分别导入两个文件。语言模型必须使用 Q4 文件名、文件大小和 SHA-256；Q5 虽然也是官方模型，但当前版本不会通过校验。若要使用 Q5，需要先修改 `ModelStore.kt` 中的模型规格和哈希白名单。
 
 ## 开发环境
 
