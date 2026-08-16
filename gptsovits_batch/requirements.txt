@@ -1,0 +1,2 @@
+# No third-party Python packages are required.
+# FFmpeg is optional and is used only if returned WAV segments have different formats.

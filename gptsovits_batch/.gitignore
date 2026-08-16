@@ -1,0 +1,6 @@
+config.json
+output/wav/
+output/audio_manifest.json
+output/qa_report.json
+output/failed.jsonl
+work/

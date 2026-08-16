@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">宝可梦图鉴扫描器</string>
+    <string name="camera_permission_title">需要相机权限</string>
+    <string name="camera_permission_body">开启相机后才能拍摄并识别宝可梦。</string>
+    <string name="camera_permission_action">开启相机</string>
+    <string name="camera_unavailable">无法使用相机</string>
+    <string name="recognition_unavailable">云端 AI 无法完成识别</string>
+    <string name="camera_retry">重试</string>
+    <string name="capture_pokemon">识别宝可梦</string>
+    <string name="reset_scanner">返回相机</string>
+    <string name="previous_pokemon">上一只宝可梦</string>
+    <string name="next_pokemon">下一只宝可梦</string>
+    <string name="scanner_ready">READY</string>
+    <string name="scanner_analyzing">ANALYZING</string>
+    <string name="scanner_result">MATCH FOUND</string>
+    <string name="choose_photo">选择图片</string>
+    <string name="ditto_notice">这是百变怪变的</string>
+</resources>
