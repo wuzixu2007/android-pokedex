@@ -24,6 +24,40 @@
 
 生成的 APK 位于 `app/build/outputs/apk/debug/`。也可以直接用 Android Studio 打开项目并运行 `app` 配置。
 
+## 项目结构
+
+```text
+android-pokedex/
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── assets/                  # 内置图鉴、图片、小游戏与音效资源
+│   │   │   ├── java/com/example/pokedex/
+│   │   │   │   ├── data/scanner/        # 本地存储、资源、相机与 AI 请求实现
+│   │   │   │   ├── domain/scanner/      # 设置、状态和领域模型
+│   │   │   │   ├── presentation/        # Compose 页面、ViewModel 和小游戏界面
+│   │   │   │   ├── ui/theme/            # 主题、颜色和字体令牌
+│   │   │   │   └── MainActivity.kt      # Android 入口
+│   │   │   ├── res/                     # Android 图标、颜色、主题和布局资源
+│   │   │   ├── test/                    # 本地 JVM 单元测试
+│   │   │   └── androidTest/             # 设备/模拟器测试
+│   │   ├── build.gradle.kts             # 应用模块配置
+│   │   └── proguard-rules.pro           # 发布版混淆规则
+├── docs/
+│   ├── architecture.md                  # 架构说明
+│   └── self-hosting-and-api.md          # 自有 AI 服务与本地资源说明
+├── gradle/                              # Gradle Wrapper 与版本目录
+├── tools/                               # 数据导入、语音打包等开发工具
+├── gptsovits_batch/                     # 批量生成语音的辅助脚本
+├── gptsovits_simple/                    # 简化版语音生成脚本
+├── build.gradle.kts                     # 根项目配置
+├── settings.gradle.kts                  # Gradle 模块声明
+├── gradlew / gradlew.bat                # Gradle Wrapper 启动脚本
+└── README.md
+```
+
+`app/src/main/assets/` 是公开版的核心离线资源来源；`build/`、`artifacts/`、本地 SDK 配置和 IDE 缓存均不应提交。
+
 ## 资源和隐私
 
 核心资源位于 `app/src/main/assets/`，首次启动时复制到应用私有目录。应用不会请求项目方的资源清单，也不会连接项目方的云函数。构建产物、发布 APK、大型 ZIP、IDE 文件和本地 SDK 配置被 `.gitignore` 排除。
